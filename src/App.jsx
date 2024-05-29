@@ -1,3 +1,4 @@
+import { MyFavFood } from "./MyFavFood";
 import UserProfile from "./components/UserProfile";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
         <div>
             <h1>App component</h1>
             <UserProfile />
+            <MyFavFood />
         </div>
 
     )
