@@ -1,14 +1,13 @@
-import Panel from "./components/Panel";
-import Button from "./components/Button";
+
 
 function App() {
+    function clickHandler() {
+        alert('hello Wolrd')
+    }
     return (
         <>
+            <button onClick={clickHandler}>Click Me</button>
 
-            <Panel title="Welcome">
-                <Button>Sign Up</Button>
-                <Button>Log In</Button>
-            </Panel>
         </>
     )
 }
