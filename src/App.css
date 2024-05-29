@@ -1,0 +1,9 @@
+body {
+    background-color: #1e1e1e;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.user-detail {
+    display: flex;
+}
