@@ -8,13 +8,13 @@ function App() {
         age: 35,
     }
     return (
-        <div>
+        <>
             <h1>App component</h1>
             <hr />
             <UserProfile userdata={user} />
             <hr />
             <MyFavFood />
-        </div>
+        </>
 
     )
 }
