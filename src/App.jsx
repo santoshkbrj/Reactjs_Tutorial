@@ -1,4 +1,4 @@
-import { MyFavFood } from "./MyFavFood";
+import { MyFavFood } from "./components/MyFavFood";
 import UserProfile from "./components/UserProfile";
 
 function App() {
@@ -10,7 +10,9 @@ function App() {
     return (
         <div>
             <h1>App component</h1>
+            <hr />
             <UserProfile userdata={user} />
+            <hr />
             <MyFavFood />
         </div>
 
