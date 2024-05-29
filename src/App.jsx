@@ -1,6 +1,12 @@
+import UserProfile from "./components/UserProfile";
+
 function App() {
     return (
-        <h1>App component</h1>
+        <div>
+            <h1>App component</h1>
+            <UserProfile />
+        </div>
+
     )
 }
 export default App;
