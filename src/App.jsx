@@ -7,9 +7,10 @@ function App() {
         email: "john@gmail.com",
         age: 35,
     }
+    const num = 20;
     return (
         <>
-            <h1>App component</h1>
+            {num >= 20 && <p>Number is greater equal than 20</p>}
             <hr />
             <UserProfile userdata={user} />
             <hr />
