@@ -1,9 +1,9 @@
-function UserProfile() {
+function UserProfile({ userdata }) {
     return (
         <div>
-            <p>Name: John Doe</p>
-            <p>Age: 35</p>
-            <p>Email: john@gmail.comm</p>
+            <p>Name: {userdata.name}</p>
+            <p>Age: {userdata.age}</p>
+            <p>Email: {userdata.email}</p>
         </div>
     )
 }
