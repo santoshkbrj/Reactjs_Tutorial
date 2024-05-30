@@ -1,36 +1,20 @@
 import { useState } from "react";
+import { Color } from "./components/Color";
 
 function App() {
-    const [username, setUsername] = useState('');
-    const [password, setPasword] = useState('');
-    const [users, setUsers] = useState([]);
+    const [UIcolor, setUIColor] = useState('#000')
 
-
+    // Our callback function
+    const getColor = (color) => {
+        setUIColor(color)
+    }
+    //console.log(`Color: ${UIcolor}`)
     return (
         <>
-            <form>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" value={password} onChange={(e) => setPasword(e.target.value)} />
-                </div>
-                <button onClick={(e) => {
-                    e.preventDefault();
-                    const newUser = {
-                        username,
-                        password
-                    }
-                    setUsers((currUser) => [...currUser, newUser])
-                    console.log(users)
-                }}>Add User</button>
-
-            </form>
-            <p>Username: {username}</p>
-            <p>Password: {password}</p>
+            <div style={{ width: "450px", height: "300px", backgroundColor: `${UIcolor}` }}></div>
+            <Color getColor={getColor} />
         </>
     )
 }
+
 export default App;
