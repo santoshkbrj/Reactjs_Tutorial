@@ -1,57 +1,59 @@
-import { useEffect } from "react";
 import { useState } from "react";
 
 function App() {
-    const [counter, setCounter] = useState(0);
-    const [sync, setSync] = useState(false)
+    const [blogPostData, setblogPostData] = useState({
+        title: "",
+        body: "",
+    });
 
-    useEffect(() => {
-        console.log('rendering....');
-        document.title = "React tutorial " + counter
-    }, [sync])
 
-    // useEffect(() => {
-    //     fetch("https://jsonplaceholder.typicode.com/users")
-    //         .then((response) => {
-    //             return response.json();
-    //         })
-    //         .then((data) => {
-    //             console.log(data)
-    //         })
-    //         .catch((err) => {
-    //             console.log(message.err)
-    //         })
-
-    // })
-
-    useEffect(() => {
-        const controller = new AbortController();
-
-        try {
-            const fetchapi = async () => {
-                const data = await fetch("https://jsonplaceholder.typicode.com/users", { signal: controller.signal });
-                const res = await data.json();
-                console.log(res)
-                console.log(controller.signal)
-            }
-            fetchapi()
-        }
-        catch (err) {
-            console.log(err)
-        }
-        return () => {
-            controller.abort();
-            console.log(controller.signal)
-        }
-
-    })
-
+    console.log(blogPostData)
 
     return (
         <>
-            <div>You click button {counter} times</div>
-            <button onClick={() => setCounter((count) => count + 1)} >Click Me</button>
-            <button onClick={() => setSync((currentState) => !currentState)} >Sync Me</button>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                if (blogPostData.title && blogPostData.body) {
+                    try {
+                        fetch('https://jsonplaceholder.typicode.com/posts', {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                title: blogPostData.title,
+                                body: blogPostData.body,
+                                userId: 1,
+                            }),
+                            headers: {
+                                "Content-type": "application/json; charset=UTF-8"
+                            },
+                        })
+                    }
+                    catch (err) {
+                        console.log(err)
+                    }
+                }
+            }}>
+                <div>
+                    <label htmlFor="title">Title</label>
+                    <input type="text" id="title" value={blogPostData.title}
+                        onChange={(e) => {
+                            setblogPostData((currentStateBlogPostData) => ({
+                                ...currentStateBlogPostData,
+                                title: e.target.value
+                            }))
+                        }} />
+                </div>
+                <div>
+                    <label htmlFor="body">Body</label>
+                    <input type="text" id="body" value={blogPostData.body}
+                        onChange={(e) => {
+                            setblogPostData((currentStateBlogPostData) => ({
+                                ...currentStateBlogPostData,
+                                body: e.target.value
+                            }))
+                        }} />
+                </div>
+                <button>Create Post</button>
+            </form>
         </>
     )
 }
