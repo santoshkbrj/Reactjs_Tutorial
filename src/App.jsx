@@ -32,11 +32,16 @@ function App() {
                 const data = await fetch("https://jsonplaceholder.typicode.com/users", { signal: controller.signal });
                 const res = await data.json();
                 console.log(res)
+                console.log(controller.signal)
             }
             fetchapi()
         }
         catch (err) {
             console.log(err)
+        }
+        return () => {
+            controller.abort();
+            console.log(controller.signal)
         }
 
     })
