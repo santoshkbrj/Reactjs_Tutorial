@@ -10,6 +10,36 @@ function App() {
         document.title = "React tutorial " + counter
     }, [sync])
 
+    // useEffect(() => {
+    //     fetch("https://jsonplaceholder.typicode.com/users")
+    //         .then((response) => {
+    //             return response.json();
+    //         })
+    //         .then((data) => {
+    //             console.log(data)
+    //         })
+    //         .catch((err) => {
+    //             console.log(message.err)
+    //         })
+
+    // })
+
+    useEffect(() => {
+        try {
+            const fetchapi = async () => {
+                const data = await fetch("https://jsonplaceholder.typicode.com/users");
+                const res = await data.json();
+                console.log(res)
+            }
+            fetchapi()
+        }
+        catch (err) {
+            console.log(err)
+        }
+
+    })
+
+
     return (
         <>
             <div>You click button {counter} times</div>
