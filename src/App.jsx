@@ -25,9 +25,11 @@ function App() {
     // })
 
     useEffect(() => {
+        const controller = new AbortController();
+
         try {
             const fetchapi = async () => {
-                const data = await fetch("https://jsonplaceholder.typicode.com/users");
+                const data = await fetch("https://jsonplaceholder.typicode.com/users", { signal: controller.signal });
                 const res = await data.json();
                 console.log(res)
             }
