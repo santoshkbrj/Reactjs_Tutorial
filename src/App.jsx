@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css'
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
             try {
                 const response = await fetch('https://jsonplaceholder.typicode.com/users');
                 const data = await response.json();
-                //console.log(data)
+                console.log(data)
                 setUsers(data);
                 setLoading(false);
             } catch (error) {
@@ -38,19 +39,44 @@ function App() {
     };
 
     const filteredUsers = currentPosts.filter((user) => {
-        console.log(user.name)
-        return user.name.toLowerCase().includes(searchQuery.toLowerCase());
+        // console.log(user.name)
+        return (
+            user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            user.username.toLowerCase().includes(searchQuery.toLowerCase())
+        )
     });
+
+
 
     return (
         <div>
             <h1>Users</h1>
-            <input type="search" value={searchQuery} onChange={handleSearch} placeholder="Search users" />
-            <ul>
-                {filteredUsers.map((user) => (
-                    <li key={user.id}>{user.name}</li>
-                ))}
-            </ul>
+            <input type="search" value={searchQuery} onChange={handleSearch} placeholder="Search users" /> <br />
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>UserName</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {filteredUsers.map((user) => (
+                        <tr key={user.id}>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>{user.username}</td>
+                            <td>{user.phone}</td>
+                            <td>{user.address.city}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
             <div>
                 {Array(Math.ceil(users.length / postsPerPage))
                     .fill(0)
