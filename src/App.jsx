@@ -1,16 +1,22 @@
-
-import { useState } from "react";
-import ResizeWindow from "./components/ResizeWindow";
-
+import PostContainer from "./components/PostContainer";
+import { UserContext } from "./utils/Context/UserContext"
 
 function App() {
-    const [toggle, setToggle] = useState(false)
+
 
     return (
-        <>
-            <button onClick={() => setToggle((currentState) => !currentState)}>Toggle</button>
-            {toggle && <ResizeWindow />}
-        </>
+        <UserContext.Provider value={
+            {
+                id: 1,
+                username: 'Rakesh',
+                email: "anson@gmail.com",
+                displayName: "Rakesh Sah"
+            }}>
+            <div>
+                <PostContainer />
+            </div>
+
+        </UserContext.Provider>
     )
 }
 export default App;
