@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useDocumentClick } from "../utils/hooks/useDocumentClick";
 
 useEffect
 
@@ -13,7 +14,10 @@ export default function ResizeWindow() {
             window.removeEventListener('resize', resizeHandler);
             console.log('Component did unmount');
         }
-    }, [])
+    }, []);
+
+    useDocumentClick();
+
     return (
         <div>
 
