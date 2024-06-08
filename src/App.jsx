@@ -37,7 +37,15 @@ function App() {
                 <label htmlFor="data">Enter Data</label>
                 <input type="text" id="data" onChange={(e) => {
                     if (e.target.value.length > 10) {
-                        navigate("/blog-posts");
+                        navigate("/blog-posts", {
+                            posts: [
+                                {
+                                    id: 1,
+                                    title: "hello world",
+                                    content: "Welcome to my fisrt post"
+                                },
+                            ],
+                        });
                     }
                 }}
                 />
