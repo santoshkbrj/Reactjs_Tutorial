@@ -6,7 +6,11 @@ export default function PostContent() {
     const userContextData = useContext(UserContext)
     return (
         <div>
-            {userContextData.email}
+            {userContextData.id}<br />
+            <button onClick={() => {
+                setUserData((currentState) =>
+                    ({ ...currentState, displayName: "Updated display Name" }))
+            }}>Click me</button>
             <PostContentButton />
         </div>
     )
