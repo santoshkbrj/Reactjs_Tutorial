@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PostContainer from "./components/PostContainer";
 import { UserContext } from "./utils/Context/UserContext"
 import { useFetchUser } from "./utils/hooks/useFetchUser";
@@ -12,14 +12,21 @@ function App() {
             id: 1,
             username: 'anson',
             email: "anson@gmail.com",
-            displayName: "anson Doe"
+            name: "anson Doe"
         }
     )
+
+    useEffect(() => {
+        if (!loading && !error && user) setUserData(user)
+    }, [loading, error, user])
 
     return (
         <UserContext.Provider value={{ ...userData, setUserData }}>
             <div>
-                <PostContainer />
+                {
+                    loading ? "Loding..." : <PostContainer />
+                }
+
             </div>
 
         </UserContext.Provider>

@@ -9,7 +9,7 @@ export default function PostContent() {
             {userContextData.id}<br />
             <button onClick={() => {
                 setUserData((currentState) =>
-                    ({ ...currentState, displayName: "Updated display Name" }))
+                    ({ ...currentState, name: "Updated display Name" }))
             }}>Click me</button>
             <PostContentButton />
         </div>

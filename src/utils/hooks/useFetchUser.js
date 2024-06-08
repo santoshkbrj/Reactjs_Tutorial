@@ -23,7 +23,10 @@ export function useFetchUser(userId) {
                 setError(err)
             })
             .finally(() => {
-                setLoading(false)
+                setTimeout(() => {
+                    setLoading(false)
+                }, 2000)
+
             })
 
         return () => {

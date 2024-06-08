@@ -7,7 +7,10 @@ export default function PostContainer() {
     return (
         <div>
             <PostContent />
-            {userContextData.displayName}
+            {userContextData.id}<br />
+            {userContextData.name}<br />
+            {userContextData.email}<br />
+
         </div>
     )
 }
