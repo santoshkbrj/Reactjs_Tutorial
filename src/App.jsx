@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PostContainer from "./components/PostContainer";
 import { UserContext } from "./utils/Context/UserContext"
 import { useFetchUser } from "./utils/hooks/useFetchUser";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function App() {
     const { user, loading, error } = useFetchUser(2);
@@ -17,8 +17,10 @@ function App() {
         }
     )
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        if (!loading && !error && user) setUserData(user)
+        if (!loading && !error && user) setUserData(user);
     }, [loading, error, user])
 
     return (
@@ -30,6 +32,17 @@ function App() {
                     <li><Link to="/blog-posts">Blog</Link></li>
                 </ul>
             </nav>
+
+            <div>
+                <label htmlFor="data">Enter Data</label>
+                <input type="text" id="data" onChange={(e) => {
+                    if (e.target.value.length > 10) {
+                        navigate("/blog-posts");
+                    }
+                }}
+                />
+
+            </div>
             <UserContext.Provider value={{ ...userData, setUserData }}>
                 <div>
                     {
