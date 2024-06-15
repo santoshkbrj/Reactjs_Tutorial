@@ -1,10 +1,11 @@
 import React from 'react'
-import UseEffect from './hooks/UseEffect'
+import UseRef from './hooks/UseRef'
+
 
 function App() {
     return (
         <div>
-            <UseEffect />
+            <UseRef />
         </div>
     )
 }
