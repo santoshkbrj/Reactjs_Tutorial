@@ -1,10 +1,10 @@
 import React from 'react'
-import UseMemo from './hooks/UseMemo'
+import UseCallback from './hooks/UseCallback'
 
 function App() {
     return (
         <div>
-            <UseMemo />
+            <UseCallback />
         </div>
     )
 }
