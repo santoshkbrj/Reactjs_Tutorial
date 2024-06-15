@@ -1,11 +1,10 @@
 import React from 'react'
-import UseRef from './hooks/UseRef'
-
+import UseMemo from './hooks/UseMemo'
 
 function App() {
     return (
         <div>
-            <UseRef />
+            <UseMemo />
         </div>
     )
 }
