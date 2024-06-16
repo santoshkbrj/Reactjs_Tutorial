@@ -1,12 +1,11 @@
 import React from 'react'
-import Profile from './components/Profile'
-import Footer from './components/Footer'
+import UseLayout from './hooks/UseLayout'
+
 
 function App() {
     return (
         <div>
-            <Profile />
-            <Footer />
+            <UseLayout />
         </div>
     )
 }
