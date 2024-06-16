@@ -1,11 +1,12 @@
 import React from 'react'
-import UseLayout from './hooks/UseLayout'
+import CustomeHook from './hooks/CustomeHook'
+
 
 
 function App() {
     return (
         <div>
-            <UseLayout />
+            <CustomeHook />
         </div>
     )
 }
