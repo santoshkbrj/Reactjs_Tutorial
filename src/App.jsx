@@ -1,10 +1,12 @@
 import React from 'react'
-import UseCallback from './hooks/UseCallback'
+import Profile from './components/Profile'
+import Footer from './components/Footer'
 
 function App() {
     return (
         <div>
-            <UseCallback />
+            <Profile />
+            <Footer />
         </div>
     )
 }
