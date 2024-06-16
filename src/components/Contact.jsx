@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { AppContext } from '../context/Context'
 
 function Contact() {
-    const phone = useContext(AppContext)
+    const { phone } = useContext(AppContext)
     return (
         <div>
             <h2>
