@@ -1,12 +1,13 @@
 import React from 'react'
-import CustomeHook from './hooks/CustomeHook'
+import Accordion from './components/accordion/Accordion';
+import './App.css'
 
 
 
 function App() {
     return (
         <div>
-            <CustomeHook />
+            <Accordion />
         </div>
     )
 }
